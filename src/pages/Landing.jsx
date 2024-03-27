@@ -1,12 +1,22 @@
+import axios from 'axios'
 import { useLoaderData } from 'react-router-dom'
 
+const cocktailSearchUrl =
+  'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
+
 export const loader = async () => {
-  return 'something'
+  const searchTerm = 'margarita'
+  const resp = await axios.get(`${cocktailSearchUrl}${searchTerm}`)
+
+  return {
+    drinks: resp.data.drinks,
+    searchTerm,
+  }
 }
 
 const Landing = () => {
-  const data = useLoaderData()
-  console.log(data)
+  const { drinks, searchTerm } = useLoaderData()
+  console.log(drinks)
   return <div>Landing</div>
 }
 
