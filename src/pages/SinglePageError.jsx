@@ -7,7 +7,8 @@ const SinglePageError = () => {
   return (
     <Wrapper>
       <div>
-        <p>{error.message}</p>
+        {/* <p>{error.message}</p> */}
+        <p>There was an error...</p>
       </div>
     </Wrapper>
   )
