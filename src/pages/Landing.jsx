@@ -18,16 +18,18 @@ const searchCocktailsQuery = (searchTerm) => {
   }
 }
 
-export const loader = async ({ request }) => {
-  const url = new URL(request.url)
-  const searchTerm = url.searchParams.get('search') || ''
-  // const resp = await axios.get(`${cocktailSearchUrl}${searchTerm}`)
-
-  return {
-    // drinks: resp.data.drinks,
-    searchTerm,
+export const loader =
+  (queryClient) =>
+  async ({ request }) => {
+    const url = new URL(request.url)
+    const searchTerm = url.searchParams.get('search') || ''
+    // const resp = await axios.get(`${cocktailSearchUrl}${searchTerm}`)
+    await queryClient.ensureQueryData(searchCocktailsQuery(searchTerm))
+    return {
+      // drinks: resp.data.drinks,
+      searchTerm,
+    }
   }
-}
 
 const Landing = () => {
   const { searchTerm } = useLoaderData()
