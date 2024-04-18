@@ -18,10 +18,6 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: '/about',
-        element: <About />,
-      },
-      {
         index: true,
         element: <Landing />,
         loader: landingLoader,
@@ -36,6 +32,10 @@ const router = createBrowserRouter([
         errorElement: <SinglePageError />,
         loader: singleCocktailLoader,
         element: <Cocktail />,
+      },
+      {
+        path: '/about',
+        element: <About />,
       },
     ],
   },
