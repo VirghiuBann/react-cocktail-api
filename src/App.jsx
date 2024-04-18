@@ -9,6 +9,8 @@ import {
 } from './pages'
 import { loader as landingLoader } from './pages/Landing'
 import { loader as singleCocktailLoader } from './pages/Cocktail'
+import { action as newsLetterAction } from './pages/Newsletter'
+
 import SinglePageError from './pages/SinglePageError'
 
 const router = createBrowserRouter([
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: '/newsletter',
         element: <NewsLetter />,
+        action: newsLetterAction,
       },
       {
         path: '/cocktail/:id',
